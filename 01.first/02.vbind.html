@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- true 顯示 , false 不顯示 -->
+        <!-- <h1 :class="{key1:true , key2:false}">這是文字</h1> -->
+        <!-- class and :class 會合併 -->
+        <h1 class="Title" :class="{active:isActive , line:isLine}">這是文字</h1>
+        <button @click="changeColor">Change</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                isActive: false,
+                isLine: false
+            },
+            methods: {
+                changeColor() {
+                    this.isActive = !this.isActive
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

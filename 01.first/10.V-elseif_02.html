@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2>{{result}}</h2>
+        <input v-model="score">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                score: 0
+            },
+            computed: {
+                result() {
+                    let message = "";
+                    if (this.score > 100) {
+                        message = "爆表了啦"
+
+                    } else if (this.score >= 60) {
+                        message = "及格"
+
+                    } else if (this.score >= 0) {
+                        message = "不及格"
+
+                    } else {
+                        message = "你也太爛了吧"
+
+                    }
+                    return message;
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div @click="divClick">
+            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            <button @click="btnClick">會產生氣泡</button>
+            <button @click.stop="btnClick">無氣泡</button>
+        </div>
+    </div>
+    <hr>
+    <form action="google.com">
+        <input type="submit" value="送出" @click.prevent="submitClick">
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {},
+            methods: {
+                divClick() {
+                    console.log("DivClick");
+                },
+                btnClick() {
+                    console.log("BtnClick");
+                },
+                submitClick() {
+                    console.log("submitClick");
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item, index) in books" :key="index">{{item.id}} - {{item.name}} - {{item.price}}</li>
+        </ul>
+        <h2>總價格：{{TotalPrice}}</h2>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                books: [{
+                    id: 110,
+                    name: "成為一個有用的人",
+                    price: 200
+                }, {
+                    id: 111,
+                    name: "book111",
+                    price: 50
+                }, {
+                    id: 112,
+                    name: "book112",
+                    price: 100
+                }, {
+                    id: 113,
+                    name: "book113",
+                    price: 120
+                }]
+            },
+            computed: {
+                TotalPrice: function () {
+                    let price = 0
+                    this.books.forEach(element => {
+                        price += element.price
+                    });
+                    return price
+                },
+            },
+        })
+    </script>
+</body>
+
+</html>

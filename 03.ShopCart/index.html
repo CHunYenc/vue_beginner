@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+        <div v-if="books.length">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>書籍名稱</th>
+                        <th>出版日期</th>
+                        <th>價格</th>
+                        <th>購買數量</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(item, index) in books" :key="index">
+                        <!-- <td>{{value}}</td> -->
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.date}}</td>
+                        <!-- <td>{{getFinalPrice(item.price)}}</td> -->
+                        <td> {{item.price| showPrice}}</td>
+                        <td>
+                            <button @click="decrement(index)">+</button>
+                            {{item.count}}
+                            <button @click="increment(index)" v-bind:disabled="item.count == 1">-</button>
+                        </td>
+                        <td>
+                            <button @click="removeItem(index)">移除</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div>
+                <span>{{totalPrice | showPrice}} </span>
+            </div>
+        </div>
+        <div v-else>
+            <h2>購物車為空</h2>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <span v-if="isEmail">
+            <label for="username">這是帳號登入</label>
+            <input type="text" id="username" placeholder="請輸入你的帳號">
+        </span>
+        <span v-else>
+            <label for="email">這是信箱登入</label>
+            <input type="text" id="email" placeholder="請輸入你的電子郵件">
+        </span>
+        <button @click="isEmail =! isEmail">切換登入類型</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                isEmail: false
+            },
+        })
+    </script>
+</body>
+
+</html>
